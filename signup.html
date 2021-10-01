@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>NL SIGNUP OR LOGIN</title>
+</head>
+<body>
+  <Body style="background-color:#09daff;"></Body>
+  <link rel="icon" href="logo.png">
+  <center><img src="logo.png"width="100" height="100" alt="logo" ></center>
+ <center><div id="Registration">
+  <h1>Signup</h1>
+  <input type="text" name="email" id="email" placeholder="Enter Your Email"color="black"><br><br>
+  <input type="text" name="pass" id="password" placeholder="Enter Your Password"><br><br>
+  <button onclick="RegisterUser()">SIGNUP</button>
+ </div>
+
+
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+<center><h2>Nem's library Menu</h2></center>
+<center><img src="logo.png"width="100" height="100" alt="logo" ></center>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="login.html">Login</a>
+  <a href="aboutus.html">About us</a>
+  <a href="Contact_Form.html">Contact us</a>
+</div>
+<style>
+    h2 {
+    color:white
+    }
+</style>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+   
+</body>
+</html> 
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABUiK681DjOngcXVi-gXRxgcgG32Ox20g",
+  authDomain: "weblibrary-403df.firebaseapp.com",
+  databaseURL: "https://weblibrary-403df-default-rtdb.firebaseio.com",
+  projectId: "weblibrary-403df",
+  storageBucket: "weblibrary-403df.appspot.com",
+  messagingSenderId: "736555015178",
+  appId: "1:736555015178:web:1ddf41a508aefc2bb953f3",
+  measurementId: "G-V5B5HHXKQG"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+  function RegisterUser() {
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+    // alert('User Registered successfully');
+    var id=firebase.auth().currentUser.uid;
+    firebase.database().ref('Users/'+id).set({
+    });
+
+    {alert("Signed up successfully!")}
+
+   }).catch(function(error){
+    
+    var errorcode=error.code;
+    var errormsg=error.message;
+
+   });
+  }
+  function LoginUser(){
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+
+
+    var id=firebase.auth().currentUser.uid;
+    window.location.replace("indexmembers.html");
+    localStorage.setItem('id',id);
+    
+   }).catch(function(error){
+
+    var errorCode=error.code;
+    var errorMsg=error.message;
+
+   });
+  }
+</script>
+<br><br><br>
+If you are new user, hit signup button once. After the "successfully signed up" message came, hit login button.<br><br>
+If you are signed up user, enter login credentials and hit login button.<br><br>
+REMEMBER: Errors are not detecting here. You must add right credentials to log in.<br>*You can't signup twice.<br><br>
+***Please use 6 or more charactors to your password.<br><br>
+***<img src="pwdin.png"<br><br>
+
+</center>
+</body>
+</html>
+
+<footer>
+  <P><center>launched date- 28.06.2021<BR> 
+       Update status- This page was last updated on 18.09.2021<BR><BR>  
+       Copyright &#169; 2021 by Tharuja Nemitha Wanaguru. All rights reserved.<BR><center/>
+    <br><br> 
+    
+     
+  <script id="BotPenguin-messenger-widget" src="https://cdn.botpenguin.com/botpenguin.js" defer>6101465fa0fdab78e43d1989,6101449af5bb6e78fb59e4ad</script>
+  
+  <style>
+  
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: brown;
+    color: white;
+  }
+  </style>
